@@ -1,6 +1,10 @@
 export class AsyncElement extends HTMLElement {
   static observedAttributes = ['src']
 
+  static sanitize = (text) => {
+    return text
+  }
+
   get src() {return this.getAttribute('src')}
 
   constructor() {super()}
@@ -15,9 +19,10 @@ export class AsyncElement extends HTMLElement {
     }
   }
 
-  async fetch() {
-    const response = await fetch(this.src)
-    this.innerHTML = await response.text()
+  async fetch(request, options) {
+    const response = await fetch(request || this.src, options)
+    const text  = await response.text()
+    this.innerHTML = AsyncElement.sanitize(text)
     //TODO: maybe put the response inside a <template> first and clean it up at least of <script> tags and so on.
   }
 }

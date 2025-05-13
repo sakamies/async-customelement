@@ -18,7 +18,7 @@ customElements.define('async-', AsyncElement)
 Use the element. The url in the `src` attribute will be fetched with [`fetch(url)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) and the result will be set as the [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) of your async element.
 
 ```html
-<async- src="/remote.html"></async->
+<async- src="/remote.html" id="my-async-element"></async->
 ```
 
 When the element is defined, fetching will start as soon the async element is encountered by the browser.
@@ -28,13 +28,13 @@ When the element is defined, fetching will start as soon the async element is en
 Changing the `src` attribute will load new content. Removing the `src` attribute will remove any content.
 
 ```js
-myAsyncElement.setAttribute('src', '/newcontent')
+document.querySelector('#my-async-element').setAttribute('src', '/newcontent')
 ```
 
 Calling the `fetch` method on your async element will fetch content based on the src attribute.
 
 ```js
-myAsyncElement.fetch()
+document.querySelector('#my-async-element').fetch()
 ```
 
 ## Configuring

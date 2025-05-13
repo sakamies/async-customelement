@@ -1,5 +1,5 @@
 export class AsyncElement extends HTMLElement {
-  static observedAttributes = ['src']
+  static observedAttributes = ['src'] //crossorigin, integrity, referrerpolicy, type?
 
   static sanitize = text => text
 
@@ -21,6 +21,5 @@ export class AsyncElement extends HTMLElement {
     const response = await fetch(request || this.src, options)
     const text  = await response.text()
     this.innerHTML = AsyncElement.sanitize(text)
-    //TODO: maybe put the response inside a <template> first and clean it up at least of <script> tags and so on.
   }
 }

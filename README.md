@@ -35,6 +35,8 @@ Calling the `fetch` method on your async element will fetch content based on the
 myAsyncElement.fetch()
 ```
 
+## Configuring
+
 The element uses native fetch internally, so you can use [fetch parameters](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch#parameters) as you would with native fetch.
 
 ```js

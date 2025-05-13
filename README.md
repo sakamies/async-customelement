@@ -2,7 +2,9 @@
 
 Tries to be like `<script src="...">` but for loading visible content.
 
-This idea is as old as [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and my implementation is almost trivially simple, but I needed this at work and didn't bother looking if someone had made one already.
+This idea is as old as [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and my implementation is almost trivially simple, but I needed this at work and didn't bother looking at first if someone had made one already.
+
+No build, no styles, no dependencies.
 
 ## Usage
 
@@ -47,3 +49,9 @@ Async element does not do any sanitizing by default, but you can set any functio
 import DOMPurify from 'dompurify';
 AsyncElement.sanitize = DOMPurify.sanitize;
 ```
+
+-----
+
+## Licence, NPM module?
+
+This repo does not have a licence and is not on NPM. Feel free to learn from this, fork the code or make a package. Give credit and [behave](https://www.contributor-covenant.org).

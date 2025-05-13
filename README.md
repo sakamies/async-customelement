@@ -15,11 +15,13 @@ import { AsyncElement } from './async.js'
 customElements.define('async-', AsyncElement)
 ```
 
-Use the element. The url in the `src` attribute will be fetched with [`fetch()`](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) and the result will be set as the [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) of your async element.
+Use the element. The url in the `src` attribute will be fetched with [`fetch(url)`](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch) and the result will be set as the [innerHTML](https://developer.mozilla.org/en-US/docs/Web/API/Element/innerHTML) of your async element.
 
 ```html
 <async- src="/remote.html"></async->
 ```
+
+When the element is defined, fetching will start as soon the async element is encountered by the browser.
 
 ## Reloading
 

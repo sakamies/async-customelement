@@ -1,9 +1,7 @@
 export class AsyncElement extends HTMLElement {
   static observedAttributes = ['src']
 
-  static sanitize = (text) => {
-    return text
-  }
+  static sanitize = text => text
 
   get src() {return this.getAttribute('src')}
 

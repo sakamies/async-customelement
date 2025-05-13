@@ -23,10 +23,10 @@ Use the element. The url in the `src` attribute will be fetched with [`fetch()`]
 
 ## Reloading
 
-Changing the src attribute will load new content.
+Changing the `src` attribute will load new content. Removing the `src` attribute will remove any content.
 
 ```js
-myAsyncElement.setAttribute('src', '/newcontent.html')
+myAsyncElement.setAttribute('src', '/newcontent')
 ```
 
 Calling the `fetch` method on your async element will fetch content based on the src attribute.
@@ -38,12 +38,12 @@ myAsyncElement.fetch()
 The element uses native fetch internally, so you can use [fetch parameters](https://developer.mozilla.org/en-US/docs/Web/API/Window/fetch#parameters) as you would with native fetch.
 
 ```js
-myAsyncElement.fetch(request, options) //
+myAsyncElement.fetch(request, options)
 ```
 
 ## Sanitizing content
 
-Async element does not do any sanitizing by default, but you can set any function that takes html and returns sanitized html, like [DOMPurify](https://github.com/cure53/DOMPurify).
+Async element does not do any sanitizing by default, but you can use any function that takes html and returns sanitized html, like [DOMPurify](https://github.com/cure53/DOMPurify). Assign your sanitizer function to `AsyncElement.sanitize` and the function will be used for sanitizing. Your function will get the [fetch response text](https://developer.mozilla.org/en-US/docs/Web/API/Response/text) as an argument.
 
 ```js
 import DOMPurify from 'dompurify';

@@ -1,6 +1,6 @@
 # Async custom element
 
-Tries to be like &lt;script src="..."&gt; but for loading visible content.
+Tries to be like `<script src="...">` but for loading visible content.
 
 This idea is as old as [XMLHttpRequest](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) and my implementation is almost trivially simple, but I needed this at work and didn't bother looking if someone had made one already.
 

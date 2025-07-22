@@ -50,8 +50,8 @@ myAsyncElement.fetch(request, options)
 Async element does not do any sanitizing by default, but you can use any function that takes html and returns sanitized html, like [DOMPurify](https://github.com/cure53/DOMPurify). Assign your sanitizer function to `AsyncElement.sanitize` and the function will be used for sanitizing. Your function will get the [fetch response text](https://developer.mozilla.org/en-US/docs/Web/API/Response/text) as an argument.
 
 ```js
-import DOMPurify from 'dompurify';
-AsyncElement.sanitize = DOMPurify.sanitize;
+import DOMPurify from 'dompurify'
+AsyncElement.sanitize = DOMPurify.sanitize
 ```
 
 -----

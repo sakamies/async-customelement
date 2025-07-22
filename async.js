@@ -5,8 +5,6 @@ export class AsyncElement extends HTMLElement {
 
   get src() {return this.getAttribute('src')}
 
-  constructor() {super()}
-
   attributeChangedCallback(name, oldValue, newValue) {
     if (name === 'src') {
       if (newValue !== null) {

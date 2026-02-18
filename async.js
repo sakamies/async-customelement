@@ -30,9 +30,19 @@ export class AsyncElement extends HTMLElement {
       options = { ...options, signal: this.#abortController.signal };
     }
 
-    const response = await fetch(request || this.src, options)
-    const text  = await response.text()
-    this.innerHTML = AsyncElement.sanitize(text)
-    this.#abortController = null;
+    this.dispatchEvent(new Event('loadstart'));
+    
+    try {
+      const response = await fetch(request || this.src, options);
+      const text = await response.text();
+      this.innerHTML = AsyncElement.sanitize(text);
+      this.#abortController = null;
+      this.dispatchEvent(new Event('load'));
+    } catch (error) {
+      // Only send error event for actual errors, AbortError will bubble up by itself if one aborts.
+      if (error.name !== 'AbortError') {
+        this.dispatchEvent(new ErrorEvent('error', { error }));
+      }
+    }
   }
 }
